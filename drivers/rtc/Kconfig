@@ -346,6 +346,17 @@ config RTC_DRV_PCF8583
 	  This driver can also be built as a module. If so, the module
 	  will be called rtc-pcf8583.
 
+config RTC_DRV_PCF2127A
+       tristate "Philips PCF2127A (only I2C)"
+       help
+         If you say yes here you get support for the Philips PCF2127A
+         RTC. This driver implements only the i2c-interface to the chip.
+         It may work with pcf2127, but is tested only against
+         the pcf2127a.
+
+         This driver can also be built as a module. If so, the module
+         will be called rtc-pcf2127a.
+
 config RTC_DRV_M41T80
 	tristate "ST M41T62/65/M41T80/81/82/83/84/85/87"
 	help
