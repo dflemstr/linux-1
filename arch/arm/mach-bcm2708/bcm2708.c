@@ -849,10 +849,6 @@ static void __init bcm2708_timer_init(void)
 	register_current_timer_delay(&bcm2708_delay_timer);
 }
 
-struct sys_timer bcm2708_timer = {
-	.init = bcm2708_timer_init,
-};
-
 #if defined(CONFIG_LEDS_GPIO) || defined(CONFIG_LEDS_GPIO_MODULE)
 #include <linux/leds.h>
 
@@ -909,7 +905,7 @@ MACHINE_START(BCM2708, "BCM2708")
     /* Maintainer: Broadcom Europe Ltd. */
 	.map_io = bcm2708_map_io,
 	.init_irq = bcm2708_init_irq,
-	.timer =&bcm2708_timer,
+	.init_time = bcm2708_timer_init,
 	.init_machine = bcm2708_init,
 	.init_early = bcm2708_init_early,
 	.reserve = board_reserve,
