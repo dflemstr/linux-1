@@ -442,6 +442,16 @@ config ARM_CHARLCD
 	  line and the Linux version on the second line, but that's
 	  still useful.
 
+config ADAFRUIT_RGB_LCD
+	bool "Adafruit RGB Character LCD Driver"
+	depends on I2C && SYSFS
+	help
+	  Say Y here if you have an Adafruit RGB LCD with 5 buttons
+	  attached to an I2C bus at address 0x20.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called adafruit-rgb-lcd.
+
 config BMP085
 	bool
 	depends on SYSFS
